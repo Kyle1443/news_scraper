@@ -24,28 +24,28 @@ for article in articles:
         links = newsitem.absolute_links
         if not key_words in title:continue
         link_list.append(links)
-        print(link_list)
+        print(str(link_list))
     except:
         pass
 
-#time.sleep(2)
+time.sleep(2)
 
 
-#EMAIL_ADRESS = os.environ.get('EMAIL_USER')
-#EMAIL_PASSWORD = os.environ.get('EMAIL_PASS')
+EMAIL_ADRESS = os.environ.get('EMAIL_USER')
+EMAIL_PASSWORD = os.environ.get('EMAIL_PASS')
 
-#msg = EmailMessage()
-#msg['Subject'] = 'Weather alert'
-#msg['From'] = EMAIL_ADRESS
-#msg['To'] = 'kyle1443@gmail.com'
-#msg.set_content(link_list)
+msg = EmailMessage()
+msg['Subject'] = 'Weather alert'
+msg['From'] = EMAIL_ADRESS
+msg['To'] = 'kyle1443@gmail.com'
+msg.set_content(str(link_list))
 
-#with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
-    #smtp.login(EMAIL_ADRESS, EMAIL_PASSWORD)
+with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
+    smtp.login(EMAIL_ADRESS, EMAIL_PASSWORD)
 
-    #smtp.send_message(msg)
+    smtp.send_message(msg)
 
-#print('message sent')
+print('message sent')
 
 
   
